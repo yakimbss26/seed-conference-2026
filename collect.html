@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'; manifest-src 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEED 제출 파일 취합</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/common.css">
+<script src="assets/xlsx-0.18.5.mini.min.js" defer></script>
+<script src="assets/common.js" defer></script>
+<script src="assets/xlsxread.js" defer></script>
+<script src="assets/collect.js" defer></script>
+</head><body><div class="wrap wide">
+<p class="muted"><a href="./">← SEED 제출 페이지 처음으로</a></p>
+<header>
+  <div class="kicker">2026학년도 제1회 S.E.E.D Conference · 지능정보교육부</div>
+  <h1>제출 파일 취합 (담당교사용)</h1>
+  <p>학생 팀 신청서와 지도교사 회신서 엑셀 파일을 한꺼번에 끌어다 놓으면 하나의 엑셀 파일로 합쳐 줍니다.</p>
+</header>
+
+<label class="drop" id="drop">
+  <input type="file" id="file" multiple accept=".xlsx" hidden>
+  <b>여기에 엑셀 파일들을 끌어다 놓거나 클릭해서 선택</b><br>
+  <small>SEED_팀신청_*.xlsx, SEED_지도교사회신_*.xlsx · 여러 번 나눠 넣어도 계속 누적됩니다</small>
+</label>
+
+<div class="stats" id="stats"></div>
+<div id="warns"></div>
+<div class="actions">
+  <button class="primary" id="save" disabled>취합 엑셀 저장</button>
+  <button id="clear">모두 지우기</button>
+</div>
+<div id="msg" class="msg"></div>
+
+<div class="card"><h2>매칭 현황</h2><div class="tablewrap" id="tblMatch"><p class="muted">아직 불러온 파일이 없습니다.</p></div></div>
+<div class="card"><h2>지도교사 회신</h2><div class="tablewrap" id="tblTeacher"><p class="muted">아직 불러온 파일이 없습니다.</p></div></div>
+<footer>파일은 이 컴퓨터 안에서만 처리되며 어디에도 전송되지 않습니다. 같은 팀장이 여러 번 제출하면 가장 늦게 제출한 파일을, 같은 교사가 여러 번 회신하면 가장 늦은 회신을 사용합니다.</footer>
+</div>
+</body></html>
