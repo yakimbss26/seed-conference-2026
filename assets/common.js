@@ -70,4 +70,5 @@ function fileToB64(file) {
 function fmtSize(n) { return n >= 1048576 ? (n / 1048576).toFixed(1) + 'MB' : Math.max(1, Math.round(n / 1024)) + 'KB'; }
 function membersText(t) { return t.members.map(m => m.id + ' ' + m.name).join(', '); }
 const AREAS = ['물리', '화학', '생물', '지구 및 환경', '산업 및 에너지'];
+const areaLabel = a => a === '산업 및 에너지' ? '산업 및 에너지(SW·IT 융합 포함)' : a;
 function fmtDue(d) { const [, m, day] = String(d).split('-'); return `${+m}. ${+day}.`; }

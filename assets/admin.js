@@ -1,6 +1,6 @@
 'use strict';
 const ROLE = 'admin';
-AREAS.forEach(a => $('fArea').append(h('option', { text: a })));
+AREAS.forEach(a => $('fArea').append(h('option', { value: a, text: areaLabel(a) })));
 const tok = () => Session.get(ROLE);
 
 $('login').addEventListener('submit', async e => {

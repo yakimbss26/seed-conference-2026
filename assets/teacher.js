@@ -1,6 +1,6 @@
 'use strict';
 const ROLE = 'teacher';
-AREAS.forEach(a => { $('fArea').append(h('option', { text: a })); $('tarea').append(h('option', { text: a })); });
+AREAS.forEach(a => { $('fArea').append(h('option', { value: a, text: areaLabel(a) })); $('tarea').append(h('option', { value: a, text: areaLabel(a) })); });
 
 $('login').addEventListener('submit', async e => {
   e.preventDefault();
