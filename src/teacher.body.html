@@ -1,0 +1,48 @@
+<header>
+  <div class="kicker">2026학년도 제1회 SEED Conference</div>
+  <h1>지도교사 페이지</h1>
+  <p>신청 팀 명단과 제출 파일을 확인하고, 지도 수락 여부를 회신합니다.</p>
+</header>
+<form id="login" class="card" novalidate><h2>교사 로그인</h2>
+  <div class="field"><label for="pw">교사용 비밀번호</label><input type="password" id="pw" autocomplete="current-password"></div>
+  <div class="actions"><button type="submit" class="primary" id="enter">로그인</button></div>
+  <div class="hint">비밀번호는 지능정보교육부에서 메신저로 안내합니다. 공용 컴퓨터에서는 사용 후 꼭 로그아웃하세요.</div>
+  <div id="lmsg" class="msg" role="status"></div>
+</form>
+<div id="app" class="hidden">
+  <div class="tabs"><button type="button" class="tab on" data-tab="list">학생 명단·제출 현황</button><button type="button" class="tab" data-tab="reply">지도 수락 회신</button><button type="button" id="logout" class="right">로그아웃</button></div>
+  <section id="tab-list">
+    <div class="filters">
+      <select id="fArea"><option value="">전체 분야</option></select>
+      <input type="text" id="fMe" maxlength="10" placeholder="내 이름(내 팀만 보기)">
+      <input type="text" id="fQ" maxlength="20" placeholder="학번·이름·주제 검색">
+      <button type="button" id="reload">새로고침</button>
+    </div>
+    <div class="stats" id="stats"></div>
+    <div class="tablewrap" id="teams"></div>
+    <div class="card"><h2>1학년 반별 신청 현황 · 미신청 학생</h2><div id="classes"></div></div>
+    <div id="dmsg" class="msg" role="status"></div>
+  </section>
+  <section id="tab-reply" class="hidden">
+    <form id="rf" class="card" novalidate><h2>지도 수락 회신</h2>
+      <div class="notice">회신 기한 <b>10. 22.(목)까지</b> · 교사 1명당 최대 2팀 · <b>한 번만 회신</b>할 수 있으며, 고칠 때는 담당 선생님께 삭제를 요청하세요.</div>
+      <div class="grid2">
+        <div class="field"><label for="tname">성함<span class="req">*</span></label><input type="text" id="tname" maxlength="10"></div>
+        <div class="field"><label for="subject">담당 교과<span class="req">*</span></label><input type="text" id="subject" maxlength="20" placeholder="예) 화학"></div>
+      </div>
+      <div class="field"><label for="tarea">지도 분야<span class="req">*</span></label><select id="tarea"><option value="">선택</option></select></div>
+      <div class="field"><label>수락할 팀 (최대 2팀)</label>
+        <select id="acc1"><option value="">선택 안 함</option></select>
+        <select id="acc2" class="mt8"><option value="">선택 안 함</option></select>
+        <div class="hint">목록은 신청 순서대로입니다. 나를 1·2지망으로 적은 팀은 ★로 표시됩니다(성함 입력 후).</div></div>
+      <div class="field"><label>추가 배정 가능 여부<span class="req">*</span></label>
+        <div class="radios"><label><input type="radio" name="extra" value="가능"> 가능</label><label><input type="radio" name="extra" value="불가"> 불가</label></div></div>
+      <div class="field"><label>11. 5.(목) 6, 7교시 심사 참여<span class="req">*</span></label>
+        <div class="radios"><label><input type="radio" name="judge" value="가능"> 가능</label><label><input type="radio" name="judge" value="불가"> 불가</label></div></div>
+      <div class="field"><label for="rmemo">비고</label><input type="text" id="rmemo" maxlength="200"></div>
+      <div class="actions"><button type="submit" class="primary" id="rsend">회신하기</button></div>
+      <div id="rmsg" class="msg" role="status"></div>
+    </form>
+    <div class="card"><h2>회신 현황</h2><div class="tablewrap" id="replies"></div></div>
+  </section>
+</div>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https://script.google.com https://script.googleusercontent.com; form-action 'none'; base-uri 'none'; object-src 'none'; manifest-src 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEED 참가 현황판</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/common.css">
+<script src="assets/config.js" defer></script>
+<script src="assets/common.js" defer></script>
+<script src="assets/board.js" defer></script>
+</head><body><div class="wrap">
+<p class="muted"><a href="./">← SEED 제출 페이지 처음으로</a></p>
+<header>
+  <div class="kicker">2026학년도 제1회 SEED Conference</div>
+  <h1>참가 현황판</h1>
+  <p>팀 신청과 단계별 제출 현황입니다. 1분마다 자동으로 새로 고칩니다. <span class="muted" id="updated"></span></p>
+</header>
+<div class="big" id="big"></div>
+<div class="card" id="gradeCard"><h2>1학년 반별 참여 현황 <span class="muted" id="g1sum"></span></h2>
+  <div class="tablewrap"><table class="cls" id="cls"></table></div>
+  <div class="hint">숫자는 학생 수입니다. 단계 칸은 그 단계를 제출한 팀에 속한 학생 수입니다.</div></div>
+<div class="grid2 board">
+  <div class="card"><h2>분야별 신청 팀</h2><div id="areas" class="bars"></div></div>
+  <div class="card"><h2>학년별 신청 팀</h2><div id="grades" class="bars"></div></div>
+</div>
+<div class="card"><h2>단계별 제출 현황</h2><div id="stages" class="bars"></div></div>
+<div id="msg" class="msg" role="status"></div>
+</div></body></html>

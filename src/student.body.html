@@ -1,0 +1,51 @@
+<header>
+  <div class="kicker">2026학년도 제1회 SEED Conference</div>
+  <h1>팀 구성 및 주제 신청 (학생용)</h1>
+  <p>팀장 1명이 작성하고 <b>신청하기</b>를 누르면 바로 접수됩니다. 파일을 따로 보낼 필요가 없습니다.</p>
+</header>
+<div class="notice">
+  신청 기한 <b>10. 21.(수)까지</b> · 팀은 같은 학년 3명 권장(2~3명) · 지도교사는 1·2지망을 함께 적습니다.<br>
+  <b>한 학생은 한 번만 신청할 수 있습니다.</b> 신청 후 고칠 내용이 있으면 담당 선생님께 삭제를 요청한 뒤 다시 신청하세요.
+</div>
+<form id="f" novalidate>
+<div class="card"><h2><span class="step">1</span>연구 정보</h2>
+  <div class="grid2">
+    <div class="field"><label for="grade">학년<span class="req">*</span></label>
+      <select id="grade"><option value="">선택</option><option>1</option><option>2</option><option>3</option></select></div>
+    <div class="field"><label for="area">연구 분야<span class="req">*</span></label>
+      <select id="area"><option value="">선택</option><option>물리</option><option>화학</option><option>생물</option><option>지구 및 환경</option><option>산업 및 에너지</option></select>
+      <div class="hint">부산과학전람회와 같은 부문입니다. 수학·정보(SW·AI) 주제는 「산업 및 에너지」를 선택하세요.</div></div>
+  </div>
+  <div class="field"><label for="topic">연구 주제(가제)<span class="req">*</span></label>
+    <input type="text" id="topic" maxlength="100" placeholder="예) 해수 염분 농도에 따른 ○○의 변화"></div>
+  <div class="field"><label for="question">연구 질문 또는 탐구 동기 (1~3문장)<span class="req">*</span></label>
+    <textarea id="question" maxlength="500" placeholder="어떤 현상에서 출발했고, 무엇을 알아보고 싶은지 적어 주세요."></textarea></div>
+</div>
+<div class="card"><h2><span class="step">2</span>팀원</h2>
+  <div class="row"><span class="tag">팀장<span class="req">*</span></span><input type="text" id="s1" inputmode="numeric" maxlength="4" placeholder="학번 4자리"><input type="text" id="n1" maxlength="10" placeholder="이름"></div>
+  <div class="row"><span class="tag">팀원<span class="req">*</span></span><input type="text" id="s2" inputmode="numeric" maxlength="4" placeholder="학번 4자리"><input type="text" id="n2" maxlength="10" placeholder="이름"></div>
+  <div class="row"><span class="tag">팀원(선택)</span><input type="text" id="s3" inputmode="numeric" maxlength="4" placeholder="학번 4자리"><input type="text" id="n3" maxlength="10" placeholder="이름"></div>
+  <div class="field"><div class="hint">학번 예) 1학년 2반 11번 → 1211 · 1학년은 학적 명단과 학번·이름이 맞아야 신청됩니다.</div></div>
+</div>
+<div class="card"><h2><span class="step">3</span>희망 지도교사</h2>
+  <div class="grid2">
+    <div class="field"><label for="t1">1지망<span class="req">*</span></label><input type="text" id="t1" maxlength="10" placeholder="선생님 성함"></div>
+    <div class="field"><label for="t2">2지망</label><input type="text" id="t2" maxlength="10" placeholder="선생님 성함"></div>
+  </div>
+  <div class="field"><label for="memo">비고</label><input type="text" id="memo" maxlength="200" placeholder="사전 상담 여부 등 (선택)"></div>
+</div>
+<div class="card hidden" id="confirm"><h2>이대로 신청할까요?</h2>
+  <div id="preview"></div>
+  <p class="muted">신청 후에는 직접 고칠 수 없습니다.</p>
+  <div class="actions"><button type="button" class="primary" id="go">네, 신청합니다</button><button type="button" id="back">다시 고치기</button></div>
+</div>
+<div class="actions" id="mainActions"><button type="submit" class="primary">신청하기</button></div>
+<div id="msg" class="msg" role="status"></div>
+</form>
+<div class="card hidden" id="done">
+  <h2>신청이 접수되었습니다</h2>
+  <p>팀 코드 <b class="code" id="code"></b></p>
+  <p>이 팀 코드는 <b>산출물을 제출할 때 꼭 필요</b>합니다. 지금 사진을 찍거나 적어 두고 팀원과 공유하세요.<br>팀 코드를 잃어버리면 담당 선생님께 문의하세요.</p>
+  <p class="muted" id="doneInfo"></p>
+  <div class="actions"><a class="btn primary" href="submit.html">산출물 제출 페이지로</a><a class="btn" href="./">처음으로</a></div>
+</div>
