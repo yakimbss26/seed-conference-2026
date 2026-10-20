@@ -83,3 +83,7 @@ td.warnc{color:var(--warn);font-weight:600}
 table.cls td{min-width:110px}
 table.cls tr.sum td,table.cls tr.sum th{font-weight:700;background:var(--accent-soft)}
 #classes td:first-child{white-space:nowrap}
+.links a.wide{grid-column:1/-1;background:var(--accent-soft);border-color:var(--accent)}
+.card ul,.card ol{margin:0 0 12px;padding-left:20px}
+.card li{margin:3px 0}
+.card th a{color:var(--accent);font-weight:700}
