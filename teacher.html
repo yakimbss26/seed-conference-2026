@@ -40,16 +40,17 @@
   </section>
   <section id="tab-reply" class="hidden">
     <form id="rf" class="card" novalidate><h2>지도 수락 회신</h2>
-      <div class="notice">회신 기한 <b>10. 22.(목)까지</b> · 교사 1명당 최대 2팀 · <b>한 번만 회신</b>할 수 있으며, 고칠 때는 담당 선생님께 삭제를 요청하세요.</div>
+      <div class="notice">수락할 팀 수에 제한이 없습니다. <b>이미 회신하셨어도</b> 같은 성함으로 다시 회신하면 새로 고른 팀이 <b>추가</b>됩니다. 이미 수락한 팀을 빼야 할 때는 담당 선생님께 요청하세요.</div>
       <div class="grid2">
         <div class="field"><label for="tname">성함<span class="req">*</span></label><input type="text" id="tname" maxlength="10"></div>
         <div class="field"><label for="subject">담당 교과<span class="req">*</span></label><input type="text" id="subject" maxlength="20" placeholder="예) 화학"></div>
       </div>
       <div class="field"><label for="tarea">지도 분야<span class="req">*</span></label><select id="tarea"><option value="">선택</option></select></div>
-      <div class="field"><label>수락할 팀 (최대 2팀)</label>
-        <select id="acc1"><option value="">선택 안 함</option></select>
-        <select id="acc2" class="mt8"><option value="">선택 안 함</option></select>
-        <div class="hint">목록은 신청 순서대로입니다. 나를 1·2지망으로 적은 팀은 ★로 표시됩니다(성함 입력 후).</div></div>
+      <div class="field"><label>수락할 팀</label>
+        <div id="accs"></div>
+        <div class="actions mt8"><button type="button" id="addAcc">+ 팀 추가</button></div>
+        <div id="mine" class="hint"></div>
+        <div class="hint">목록은 신청 순서대로입니다. 나를 1·2지망으로 적은 팀은 ★, 이미 다른 선생님이 수락한 팀은 (수락됨)으로 표시됩니다(성함 입력 후).</div></div>
       <div class="field"><label>추가 배정 가능 여부<span class="req">*</span></label>
         <div class="radios"><label><input type="radio" name="extra" value="가능"> 가능</label><label><input type="radio" name="extra" value="불가"> 불가</label></div></div>
       <div class="field"><label>11. 5.(목) 6, 7교시 심사 참여<span class="req">*</span></label>
