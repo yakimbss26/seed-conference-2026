@@ -2,10 +2,23 @@
 const v = id => $(id).value.trim();
 document.querySelectorAll('input,select,textarea').forEach(el => el.addEventListener('input', () => el.classList.remove('invalid')));
 let payload = null;
+// 팀 신청 마감(한국 시각). 서버(Code.gs APPLY_CLOSE)와 같게 유지
+const APPLY_CLOSE = { '1': '2026-10-22T00:00:00+09:00', '2': '2026-10-26T13:30:00+09:00', '3': '2026-10-22T00:00:00+09:00' };
+const isOpen = g => Date.now() < Date.parse(APPLY_CLOSE[g]);
+function checkClose() {
+  Array.from($('grade').options).forEach(o => { if (o.value) { o.disabled = !isOpen(o.value); o.textContent = o.value + (o.disabled ? ' (마감)' : ''); } });
+  if ($('grade').value && !isOpen($('grade').value)) $('grade').value = '';
+  if (!Object.keys(APPLY_CLOSE).some(isOpen) && $('done').classList.contains('hidden')) {
+    $('f').classList.add('hidden'); $('closed').classList.remove('hidden');
+  }
+}
+checkClose(); setInterval(checkClose, 30000);
 
 $('f').addEventListener('submit', e => {
   e.preventDefault();
   const errs = [], bad = id => $(id).classList.add('invalid');
+  checkClose();
+  if ($('f').classList.contains('hidden')) return;
   ['grade', 'area', 'topic', 'question', 't1'].forEach(id => { if (!v(id)) { bad(id); errs.push('필수 항목을 모두 입력해 주세요.'); } });
   const g = v('grade'), members = [];
   for (const i of [1, 2, 3]) {
