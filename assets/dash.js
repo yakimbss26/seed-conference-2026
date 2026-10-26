@@ -7,8 +7,8 @@ const Dash = {
   filter(list, f) {
     return list.filter(t => {
       if (f.area && t.area !== f.area) return false;
-      if (f.me && !(t.t1 === f.me || t.t2 === f.me || this.matched(t.id).includes(f.me))) return false;
-      if (f.q) { const s = [t.id, t.topic, t.t1, t.t2, ...t.members.map(m => m.id + m.name)].join(' '); if (!s.includes(f.q)) return false; }
+      if (f.me && !this.matched(t.id).includes(f.me)) return false; // 매칭(수락)된 교사만
+      if (f.q) { const s = [t.id, t.topic, ...this.matched(t.id), ...t.members.map(m => m.id + m.name)].join(' '); if (!s.includes(f.q)) return false; }
       return true;
     });
   },
