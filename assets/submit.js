@@ -10,7 +10,7 @@ $('login').addEventListener('submit', async e => {
   try {
     const r = await api('teamStatus', { leaderId: lid, code });
     cred = { leaderId: lid, code };
-    show(r.team, r.stages, r.mentors);
+    show(r.team, r.stages, r.mentors, r.present);
     $('login').classList.add('hidden'); $('team').classList.remove('hidden'); msg($('lmsg'), '');
   } catch (err) { msg($('lmsg'), err.message, 'err'); }
   busy($('enter'), false);
@@ -23,9 +23,10 @@ function mentorCell(list) {
   if (list.length > 1) return h('td', { text: '담당 선생님이 확인 중입니다. (' + list.map(m => m.name).join(', ') + ' 선생님께서 수락)' });
   return h('td', { class: 'muted', text: '매칭 중입니다. 희망 선생님께 연구 계획을 설명드려 보세요.' });
 }
-function show(team, stages, mentors) {
+function show(team, stages, mentors, present) {
   clear($('teamInfo')).append(h('table', null, h('tbody', null,
     h('tr', null, h('th', { text: '지도교사' }), mentorCell(mentors)),
+    h('tr', null, h('th', { text: '발표 순서' }), present ? h('td', { class: 'good', text: present.area + ' 부문 ' + present.no + '번째 발표 (' + present.room + ')' }) : h('td', { class: 'muted', text: '담당 선생님께 문의하세요' })),
     h('tr', null, h('th', { text: '연구 주제' }), h('td', { text: team.topic })),
     h('tr', null, h('th', { text: '분야' }), h('td', { text: team.grade + '학년 · ' + team.area })),
     h('tr', null, h('th', { text: '팀원' }), h('td', { text: membersText(team) })))));
@@ -57,6 +58,6 @@ async function upload(s, inp, btn) {
     const r = await api('upload', Object.assign({ stage: s.key, fileName: f.name, data }, cred));
     msg($('smsg'), `"${r.fileName}"(으)로 제출했습니다.`, 'ok');
     const t = await api('teamStatus', cred);
-    show(t.team, t.stages, t.mentors);
+    show(t.team, t.stages, t.mentors, t.present);
   } catch (err) { msg($('smsg'), err.message, 'err'); busy(btn, false); inp.disabled = false; }
 }
