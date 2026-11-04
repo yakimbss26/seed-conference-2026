@@ -1,6 +1,6 @@
 'use strict';
 let cred = null;
-const MAX = 15 * 1024 * 1024;
+const MAX = 35 * 1024 * 1024;
 
 $('login').addEventListener('submit', async e => {
   e.preventDefault();
@@ -51,7 +51,7 @@ async function upload(s, inp, btn) {
   if (!f) { msg($('smsg'), '제출할 파일을 선택해 주세요.', 'err'); return; }
   const ext = (f.name.split('.').pop() || '').toLowerCase();
   if (!s.ext.includes(ext)) { msg($('smsg'), `${s.name}은(는) ${s.ext.join(', ')} 파일만 낼 수 있습니다.`, 'err'); return; }
-  if (f.size > MAX) { msg($('smsg'), '파일은 15MB 이하만 낼 수 있습니다.', 'err'); return; }
+  if (f.size > MAX) { msg($('smsg'), '파일은 35MB 이하만 낼 수 있습니다. 더 크면 PPT에서 그림 압축 후 다시 내 주세요.', 'err'); return; }
   busy(btn, true, '올리는 중…'); inp.disabled = true;
   try {
     const data = await fileToB64(f);
